@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create UI assets and icons inside Unity. SpriteLess UI Pro combines editable shapes, effects and cutouts, then bakes them into reusable PNG sprites.">
+  <meta name="theme-color" content="#171b2c">
+  <title>SpriteLess UI Pro — DarknessTyranno</title>
+  <link rel="canonical" href="https://darknesstyranno.github.io/spriteless-ui-pro/">
+  <link rel="icon" type="image/png" href="../assets/dinosaur.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="brand" href="../" aria-label="DarknessTyranno home"><img src="../assets/dinosaur.png" width="40" height="40" alt=""><span>DarknessTyranno</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="../">Home</a><a href="./" aria-current="page">SpriteLess UI Pro</a><a href="../spriteless-ui/">SpriteLess UI</a></nav>
+    <a class="header-contact" href="mailto:darknesstyranno@naver.com">Contact <span aria-hidden="true">↗</span></a>
+  </div></header>
+  <main id="main">
+    <section class="shell asset-hero" aria-labelledby="pro-heading">
+      <div>
+        <span class="tag">Preparing for release</span>
+        <h1 id="pro-heading">SpriteLess UI <span class="pro-label">Pro</span></h1>
+        <p class="lead">Create UI assets without leaving Unity. Arrange shapes, add effects and cutouts, then bake buttons, panels, frames and simple icons into PNG sprites.</p>
+        <div class="asset-meta"><span>Unity 6+</span><span>uGUI</span><span>Editor authoring · PNG output</span></div>
+        <div class="button-row"><a class="button" href="#workflow">How it works <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI%20Pro">Ask a question</a></div>
+      </div>
+      <figure>
+        <div class="showcase-board">
+          <div class="showcase-tile tall"><img src="../assets/metal-frame.png" alt="A metallic frame built from shapes, with beveled edges and a transparent center."></div>
+          <div class="showcase-tile"><img src="../assets/glossy-button.png" alt="A blue rounded button with a glossy highlight."></div>
+          <div class="showcase-tile"><img src="../assets/faceted-ruby.png" alt="A faceted red gemstone composed from polygons."></div>
+        </div>
+        <figcaption class="figure-caption">Actual PNG output made with SpriteLess UI Pro.</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell section" aria-labelledby="create-heading">
+      <div class="section-heading"><p class="eyebrow">Your shapes. Your style.</p><h2 id="create-heading">Build it with familiar Unity controls.</h2></div>
+      <div class="feature-grid">
+        <article class="feature"><p class="feature-label">01 / Shape</p><h3>Start with the outline</h3><p>Use everyday UI shapes or edit polygon points directly in the Scene view. Adjust the size, position, color and rounded corners with the Inspector and RectTransform.</p></article>
+        <article class="feature"><p class="feature-label">02 / Refine</p><h3>Add depth and detail</h3><p>Combine gradients, outlines, bevels, inner shadows, blur and drop shadows. Use cutouts to create transparent holes, and nested groups to control what gets cut.</p></article>
+        <article class="feature"><p class="feature-label">03 / Reuse</p><h3>Keep the editable source</h3><p>Preview your work, bake a PNG and update it after editing. Save the source as a Prefab when you want to reuse the design.</p></article>
+      </div>
+    </section>
+
+    <section class="shell section" aria-labelledby="examples-heading">
+      <div class="section-heading"><p class="eyebrow">Made with Pro</p><h2 id="examples-heading">A few shapes can go a long way.</h2></div>
+      <div class="gallery">
+        <figure><div class="gallery-image"><img src="../assets/cutout-ticket.png" loading="lazy" alt="A ticket-shaped UI sprite with transparent cutout details."></div><figcaption>Cutout ticket</figcaption></figure>
+        <figure><div class="gallery-image"><img src="../assets/coin.png" loading="lazy" alt="A gold coin icon with a raised center."></div><figcaption>Coin icon</figcaption></figure>
+        <figure><div class="gallery-image"><img src="../assets/shield.png" loading="lazy" alt="A layered shield icon made from editable shapes."></div><figcaption>Shield icon</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="shell section" id="workflow" aria-labelledby="workflow-heading">
+      <div class="section-heading"><p class="eyebrow">The workflow</p><h2 id="workflow-heading">Compose. Preview. Bake.</h2></div>
+      <ol class="steps">
+        <li><h3>Create a Group</h3><p>Add a <code>SpriteLessGroup</code> to a UI object. Put your shapes underneath it, then arrange and style them.</p></li>
+        <li><h3>Edit and preview</h3><p>Turn on the Group's <strong>Edit Mode</strong> to see the combined result. Add effects or cutouts while keeping the source editable.</p></li>
+        <li><h3>Bake the sprite</h3><p>Open the Baker, choose a PNG folder and select <strong>Bake / Update Sprite</strong>. Use the baked Group or assign the PNG to a regular UI Image.</p></li>
+      </ol>
+      <aside class="note"><p>Only need an image file? <strong>Export PNG</strong> saves the selected hierarchy without creating a Group, source Prefab or linked Image.</p></aside>
+    </section>
+
+    <section class="shell section" aria-labelledby="components-heading">
+      <div class="section-heading"><p class="eyebrow">The components</p><h2 id="components-heading">One job for each component.</h2></div>
+      <div class="component-list">
+        <article class="component"><div><h3>SpriteLessImage</h3><span class="component-kind">Core · runtime-ready</span></div><p>Rectangles, circles, rings, arcs, triangles, chevrons and regular polygons. Configure the shape, color, border and corners in one component.</p></article>
+        <article class="component"><div><h3>SpriteLessPolygon</h3><span class="component-kind">Pro · runtime-ready</span></div><p>Freeform polygons with editable vertices, rounded corners and grid snapping. Move or add points in the Scene view to shape the outline.</p></article>
+        <article class="component"><div><h3>SpriteLessEffects</h3><span class="component-kind">Editor authoring</span></div><p>Gradient, Outline, Bevel, Inner Shadow, Blur and Drop Shadow. Combine different effect types on a shape or Group; one active entry per type, in a fixed processing order.</p></article>
+        <article class="component"><div><h3>SpriteLessCutout</h3><span class="component-kind">Editor authoring</span></div><p>Add it alongside a SpriteLessImage or SpriteLessPolygon to cut out that shape. The nearest active Group sets its scope, so nested groups let you isolate the cut.</p></article>
+        <article class="component"><div><h3>SpriteLessGroup</h3><span class="component-kind">Authoring source · baked output</span></div><p>Combines child shapes and displays the baked sprite. Re-enter Edit Mode to make changes. At runtime, it shows the baked sprite and disables the authoring children.</p></article>
+      </div>
+    </section>
+
+    <section class="shell section" aria-labelledby="requirements-heading">
+      <div class="section-heading"><p class="eyebrow">Before you start</p><h2 id="requirements-heading">Requirements and current scope.</h2></div>
+      <div class="requirements">
+        <div><h3>Built for Unity UI</h3><ul><li>Unity 6 or newer and uGUI 2.0.0.</li><li>Built on the <a href="../spriteless-ui/">SpriteLess UI Core</a> package.</li><li>Effects and cutouts are evaluated in editor previews and baking, not as live runtime effects.</li><li>Keep gameplay logic and interactive UI outside a Group's authoring children.</li></ul></div>
+        <div><h3>Know what gets baked</h3><ul><li>Inputs are SpriteLessImage and SpriteLessPolygon. Ordinary Image and TextMeshPro inputs are not currently supported.</li><li>Custom materials must be compatible with the baker; arbitrary shaders are not guaranteed.</li><li>PNG output supports up to 4096 pixels per side, including padding, subject to device capture limits.</li><li>Prefab saving is optional and separate from baking.</li></ul></div>
+      </div>
+    </section>
+    <section class="contact-section" aria-labelledby="contact-heading"><div class="shell contact-inner"><div><p class="eyebrow">Get in touch</p><h2 id="contact-heading">Have a question about Pro?</h2><p>Send your question or share your feedback.</p></div><a class="contact-email" href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI%20Pro">darknesstyranno@naver.com <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="shell site-footer"><p>© 2026 DarknessTyranno</p><a href="https://github.com/DarknessTyranno">GitHub <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
