@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Create UI assets and icons inside Unity. SpriteLess UI Pro combines editable shapes, effects and cutouts, then bakes them into reusable PNG sprites.">
+  <meta name="description" content="SpriteLess UI Pro user guide. Edit shapes, combine effects and cutouts, work with Groups, and bake reusable PNG sprites in Unity.">
   <meta name="theme-color" content="#171b2c">
-  <title>SpriteLess UI Pro — DarknessTyranno</title>
+  <title>SpriteLess UI Pro — User Guide | DarknessTyranno</title>
   <link rel="canonical" href="https://darknesstyranno.github.io/spriteless-ui-pro/">
   <link rel="icon" type="image/png" href="../assets/dinosaur.png">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../docs.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -17,73 +18,185 @@
     <nav class="main-nav" aria-label="Main navigation"><a href="../">Home</a><a href="./" aria-current="page">SpriteLess UI Pro</a><a href="../spriteless-ui/">SpriteLess UI</a></nav>
     <a class="header-contact" href="mailto:darknesstyranno@naver.com">Contact <span aria-hidden="true">↗</span></a>
   </div></header>
-  <main id="main">
-    <section class="shell asset-hero" aria-labelledby="pro-heading">
-      <div>
+  <div class="shell docs-layout">
+    <aside class="docs-sidebar">
+      <details open>
+        <summary>On this page</summary>
+        <nav aria-label="User guide contents">
+          <div class="nav-group"><p class="nav-label">Start here</p><a href="#workflow">First bake</a></div>
+          <div class="nav-group"><p class="nav-label">Components</p><a href="#group">SpriteLessGroup</a><a href="#image">SpriteLessImage</a><a href="#polygon">SpriteLessPolygon</a><a href="#effects">SpriteLessEffects</a><a href="#cutout">SpriteLessCutout</a></div>
+          <div class="nav-group"><p class="nav-label">Output &amp; reuse</p><a href="#baker">Baker window</a><a href="#prefabs">Source Prefabs</a><a href="#runtime">Use in your game</a><a href="#troubleshooting">Troubleshooting</a><a href="#support">Support</a></div>
+        </nav>
+      </details>
+    </aside>
+    <main class="docs-content" id="main">
+      <header class="docs-title">
+        <p class="eyebrow">User guide</p>
+        <h1>SpriteLess UI <span class="accent">Pro</span></h1>
+        <p class="lead">Arrange shapes in Unity, adjust their appearance in the Inspector, and bake the result into a PNG sprite.</p>
+        <div class="asset-meta"><span>Unity 6+</span><span>uGUI 2.0.0</span><span>SpriteLess UI Core required</span></div>
         <span class="tag">Preparing for release</span>
-        <h1 id="pro-heading">SpriteLess UI <span class="pro-label">Pro</span></h1>
-        <p class="lead">Create UI assets without leaving Unity. Arrange shapes, add effects and cutouts, then bake buttons, panels, frames and simple icons into PNG sprites.</p>
-        <div class="asset-meta"><span>Unity 6+</span><span>uGUI</span><span>Editor authoring · PNG output</span></div>
-        <div class="button-row"><a class="button" href="#workflow">How it works <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI%20Pro">Ask a question</a></div>
-      </div>
-      <figure>
-        <div class="showcase-board">
-          <div class="showcase-tile tall"><img src="../assets/metal-frame.png" alt="A metallic frame built from shapes, with beveled edges and a transparent center."></div>
-          <div class="showcase-tile"><img src="../assets/glossy-button.png" alt="A blue rounded button with a glossy highlight."></div>
-          <div class="showcase-tile"><img src="../assets/faceted-ruby.png" alt="A faceted red gemstone composed from polygons."></div>
-        </div>
-        <figcaption class="figure-caption">Actual PNG output made with SpriteLess UI Pro.</figcaption>
-      </figure>
-    </section>
+      </header>
 
-    <section class="shell section" aria-labelledby="create-heading">
-      <div class="section-heading"><p class="eyebrow">Your shapes. Your style.</p><h2 id="create-heading">Build it with familiar Unity controls.</h2></div>
-      <div class="feature-grid">
-        <article class="feature"><p class="feature-label">01 / Shape</p><h3>Start with the outline</h3><p>Use everyday UI shapes or edit polygon points directly in the Scene view. Adjust the size, position, color and rounded corners with the Inspector and RectTransform.</p></article>
-        <article class="feature"><p class="feature-label">02 / Refine</p><h3>Add depth and detail</h3><p>Combine gradients, outlines, bevels, inner shadows, blur and drop shadows. Use cutouts to create transparent holes, and nested groups to control what gets cut.</p></article>
-        <article class="feature"><p class="feature-label">03 / Reuse</p><h3>Keep the editable source</h3><p>Preview your work, bake a PNG and update it after editing. Save the source as a Prefab when you want to reuse the design.</p></article>
-      </div>
-    </section>
+      <section class="doc-section" id="workflow" aria-labelledby="workflow-heading">
+        <h2 id="workflow-heading">Your first bake</h2>
+        <ol>
+          <li>Under a Canvas, create a UI object with <strong>SpriteLessGroup</strong>. Put your <strong>SpriteLessImage</strong> or <strong>SpriteLessPolygon</strong> shapes under it as children. The Group and the shapes belong on separate objects.</li>
+          <li>Move and resize the child shapes with their RectTransforms. Adjust colors, corners and effects in their Inspectors.</li>
+          <li>Select the Group and click <strong>Open Baker</strong>. Set <strong>PNG Folder</strong> to a folder inside your project's Assets.</li>
+          <li>Click <strong>Bake / Update Sprite</strong>. The PNG is saved and assigned to the Group's <strong>Baked Sprite</strong> field.</li>
+          <li>To revise it, turn on <strong>Edit Mode</strong>, edit the children, and bake again. The linked PNG is updated.</li>
+        </ol>
+        <aside class="doc-note"><p>Already have some shapes? Select their parent and use <strong>Create Group</strong> in the Baker. Just need a file? Use <a href="#baker">Export PNG</a> without creating a Group.</p></aside>
+      </section>
 
-    <section class="shell section" aria-labelledby="examples-heading">
-      <div class="section-heading"><p class="eyebrow">Made with Pro</p><h2 id="examples-heading">A few shapes can go a long way.</h2></div>
-      <div class="gallery">
-        <figure><div class="gallery-image"><img src="../assets/cutout-ticket.png" loading="lazy" alt="A ticket-shaped UI sprite with transparent cutout details."></div><figcaption>Cutout ticket</figcaption></figure>
-        <figure><div class="gallery-image"><img src="../assets/coin.png" loading="lazy" alt="A gold coin icon with a raised center."></div><figcaption>Coin icon</figcaption></figure>
-        <figure><div class="gallery-image"><img src="../assets/shield.png" loading="lazy" alt="A layered shield icon made from editable shapes."></div><figcaption>Shield icon</figcaption></figure>
-      </div>
-    </section>
+      <section class="doc-section" id="group" aria-labelledby="group-heading">
+        <h2 id="group-heading">SpriteLessGroup</h2>
+        <span class="doc-kind">Editable source in the Editor · baked sprite at runtime</span>
+        <p>A Group combines its child shapes into one output. Keep the artwork under the Group; use the Group itself to control the output and display the baked sprite.</p>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/pro-group.png" aria-label="Open full-size SpriteLessGroup Inspector screenshot"><img src="../assets/screenshots/pro-group.png" width="449" height="395" loading="lazy" alt="SpriteLessGroup Inspector showing Baked Sprite, content size, padding, supersampling, Edit Mode and bake buttons."></a><figcaption>Group Inspector before the first bake. <a href="../assets/screenshots/pro-group.png">Open full-size image</a>.</figcaption></figure>
+        <p>A new Group is already in Edit Mode. After the first bake, you can switch between editing the composition and displaying the saved sprite.</p>
+        <dl class="doc-fields">
+          <div><dt>Baked Sprite</dt><dd>The saved sprite displayed when you are not editing. Baking assigns it automatically.</dd></div>
+          <div><dt>Content Size</dt><dd>Set the width and height of the content in output pixels. Use the RectTransform to position and size it in your UI.</dd></div>
+          <div><dt>Padding</dt><dd>Add space outside the content for shadows, outlines or blur. Defaults to 0. Padding increases the final PNG dimensions.</dd></div>
+          <div><dt>Supersampling</dt><dd>Choose 1x, 2x or 4x. Higher values render at a larger resolution before reducing to the same final PNG size. They also increase bake time and memory use.</dd></div>
+          <div><dt>Edit Mode</dt><dd>Show the editable composition instead of the saved sprite. After changing the artwork, bake again to save the result.</dd></div>
+          <div><dt>Preview Max Size</dt><dd>Limit the editing preview resolution. This does not change the final PNG size. Available in Edit Mode.</dd></div>
+        </dl>
+        <h3>Working with nested Groups</h3>
+        <p>Put a Group inside another Group to isolate part of the artwork. This is useful for a frame with a cutout that should not affect the background. Bake the outer Group when finished; you do not need to bake each inner Group first.</p>
+        <aside class="doc-note warning"><p>At runtime, the Group displays its baked sprite and disables its authoring children. Keep gameplay scripts, buttons and other interactive UI outside those children.</p></aside>
+      </section>
 
-    <section class="shell section" id="workflow" aria-labelledby="workflow-heading">
-      <div class="section-heading"><p class="eyebrow">The workflow</p><h2 id="workflow-heading">Compose. Preview. Bake.</h2></div>
-      <ol class="steps">
-        <li><h3>Create a Group</h3><p>Add a <code>SpriteLessGroup</code> to a UI object. Put your shapes underneath it, then arrange and style them.</p></li>
-        <li><h3>Edit and preview</h3><p>Turn on the Group's <strong>Edit Mode</strong> to see the combined result. Add effects or cutouts while keeping the source editable.</p></li>
-        <li><h3>Bake the sprite</h3><p>Open the Baker, choose a PNG folder and select <strong>Bake / Update Sprite</strong>. Use the baked Group or assign the PNG to a regular UI Image.</p></li>
-      </ol>
-      <aside class="note"><p>Only need an image file? <strong>Export PNG</strong> saves the selected hierarchy without creating a Group, source Prefab or linked Image.</p></aside>
-    </section>
+      <section class="doc-section" id="image" aria-labelledby="image-heading">
+        <h2 id="image-heading">SpriteLessImage</h2>
+        <span class="doc-kind">Core component · can also be used at runtime</span>
+        <p>Use this for rectangles, circles, triangles, regular polygons, rings, arcs and chevrons. Create one from <strong>GameObject → UI (Canvas) → SpriteLess</strong>, then place it under your Group.</p>
+        <ol>
+          <li>Choose <strong>Shape</strong> and set <strong>Fill Color</strong>.</li>
+          <li>Use the RectTransform for position, size and rotation.</li>
+          <li>Adjust the shape-specific controls, such as <strong>Radius</strong>, <strong>Thickness</strong> or <strong>Sides</strong>. Enable a border or edge effect where available.</li>
+        </ol>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/core-image.png" aria-label="Open full-size SpriteLessImage Inspector screenshot"><img src="../assets/screenshots/core-image.png" width="446" height="412" loading="lazy" alt="SpriteLessImage Inspector with the Shape menu open, listing rectangle, circle, quadrilateral, arc, triangle, chevron and regular polygon."></a><figcaption>Choose the shape from a single component. <a href="../assets/screenshots/core-image.png">Open full-size image</a>.</figcaption></figure>
+        <p>See the <a href="../spriteless-ui/#shapes">SpriteLessImage shape reference</a> for each shape's controls, materials and pointer settings.</p>
+      </section>
 
-    <section class="shell section" aria-labelledby="components-heading">
-      <div class="section-heading"><p class="eyebrow">The components</p><h2 id="components-heading">One job for each component.</h2></div>
-      <div class="component-list">
-        <article class="component"><div><h3>SpriteLessImage</h3><span class="component-kind">Core · runtime-ready</span></div><p>Rectangles, circles, rings, arcs, triangles, chevrons and regular polygons. Configure the shape, color, border and corners in one component.</p></article>
-        <article class="component"><div><h3>SpriteLessPolygon</h3><span class="component-kind">Pro · runtime-ready</span></div><p>Freeform polygons with editable vertices, rounded corners and grid snapping. Move or add points in the Scene view to shape the outline.</p></article>
-        <article class="component"><div><h3>SpriteLessEffects</h3><span class="component-kind">Editor authoring</span></div><p>Gradient, Outline, Bevel, Inner Shadow, Blur and Drop Shadow. Combine different effect types on a shape or Group; one active entry per type, in a fixed processing order.</p></article>
-        <article class="component"><div><h3>SpriteLessCutout</h3><span class="component-kind">Editor authoring</span></div><p>Add it alongside a SpriteLessImage or SpriteLessPolygon to cut out that shape. The nearest active Group sets its scope, so nested groups let you isolate the cut.</p></article>
-        <article class="component"><div><h3>SpriteLessGroup</h3><span class="component-kind">Authoring source · baked output</span></div><p>Combines child shapes and displays the baked sprite. Re-enter Edit Mode to make changes. At runtime, it shows the baked sprite and disables the authoring children.</p></article>
-      </div>
-    </section>
+      <section class="doc-section" id="polygon" aria-labelledby="polygon-heading">
+        <h2 id="polygon-heading">SpriteLessPolygon</h2>
+        <span class="doc-kind">Freeform shape · can also be used at runtime</span>
+        <p>Create a custom outline from <strong>GameObject → UI (Canvas) → SpriteLess Pro → SpriteLess Polygon</strong>. Select it and edit its vertices in the Scene view.</p>
+        <ol>
+          <li>Drag a vertex handle to reshape the outline.</li>
+          <li>Use a handle at the middle of an edge to add a point.</li>
+          <li>Select a vertex and click <strong>Remove Selected Vertex</strong> in the Inspector to remove it.</li>
+          <li>Adjust <strong>Fill Color</strong> and <strong>Radius</strong> to style the shape and round its corners.</li>
+        </ol>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/pro-polygon.png" aria-label="Open full-size SpriteLessPolygon Inspector screenshot"><img src="../assets/screenshots/pro-polygon.png" width="443" height="436" loading="lazy" alt="SpriteLessPolygon Inspector showing four normalized vertices, Radius, anti-aliasing, Snap, Step and Remove Selected Vertex."></a><figcaption>Point coordinates and snapping controls in the Polygon Inspector. <a href="../assets/screenshots/pro-polygon.png">Open full-size image</a>.</figcaption></figure>
+        <dl class="doc-fields">
+          <div><dt>Normalized Vertices</dt><dd>Edit point coordinates relative to the RectTransform. Resize the RectTransform to resize the whole shape.</dd></div>
+          <div><dt>Snap / Step</dt><dd>Enable Snap to move points on a normalized grid. A Step of 0.05 is 5% of the RectTransform on each axis.</dd></div>
+          <div><dt>Anti Aliasing</dt><dd>Soften the shape's edge. Adjust the width for the scale at which you will use the result.</dd></div>
+          <div><dt>Material</dt><dd>Assign a compatible uGUI material, or leave it empty for the default appearance. Check the baked result when using a custom shader.</dd></div>
+        </dl>
+        <p>For an outside border, add <strong>SpriteLessEffects → Outline</strong>.</p>
+        <figure class="doc-example"><img src="../assets/faceted-ruby.png" width="328" height="348" loading="lazy" alt="Red gemstone composed of several differently colored polygon faces."><figcaption>Combine several polygons with different fill colors to make facets. Each face remains separately editable.</figcaption></figure>
+      </section>
 
-    <section class="shell section" aria-labelledby="requirements-heading">
-      <div class="section-heading"><p class="eyebrow">Before you start</p><h2 id="requirements-heading">Requirements and current scope.</h2></div>
-      <div class="requirements">
-        <div><h3>Built for Unity UI</h3><ul><li>Unity 6 or newer and uGUI 2.0.0.</li><li>Built on the <a href="../spriteless-ui/">SpriteLess UI Core</a> package.</li><li>Effects and cutouts are evaluated in editor previews and baking, not as live runtime effects.</li><li>Keep gameplay logic and interactive UI outside a Group's authoring children.</li></ul></div>
-        <div><h3>Know what gets baked</h3><ul><li>Inputs are SpriteLessImage and SpriteLessPolygon. Ordinary Image and TextMeshPro inputs are not currently supported.</li><li>Custom materials must be compatible with the baker; arbitrary shaders are not guaranteed.</li><li>PNG output supports up to 4096 pixels per side, including padding, subject to device capture limits.</li><li>Prefab saving is optional and separate from baking.</li></ul></div>
-      </div>
-    </section>
-    <section class="contact-section" aria-labelledby="contact-heading"><div class="shell contact-inner"><div><p class="eyebrow">Get in touch</p><h2 id="contact-heading">Have a question about Pro?</h2><p>Send your question or share your feedback.</p></div><a class="contact-email" href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI%20Pro">darknesstyranno@naver.com <span aria-hidden="true">↗</span></a></div></section>
-  </main>
+      <section class="doc-section" id="effects" aria-labelledby="effects-heading">
+        <h2 id="effects-heading">SpriteLessEffects</h2>
+        <span class="doc-kind">Editor-only · included in previews and baked PNGs</span>
+        <p>Add this component to a shape to affect that shape, or to a Group to affect the combined artwork. Click <strong>Add Effect</strong> and choose a type. Use <strong>Enabled</strong> to compare the result with and without an effect.</p>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/pro-effects.png" aria-label="Open full-size SpriteLessEffects Inspector screenshot"><img src="../assets/screenshots/pro-effects.png" width="444" height="733" loading="lazy" alt="SpriteLessEffects Inspector with Gradient, Outline, Inner Shadow, Blur, Drop Shadow and Bevel expanded, plus the Add Effect button."></a><figcaption>Each effect exposes its own controls. The list's display order does not change the fixed processing order described below. <a href="../assets/screenshots/pro-effects.png">Open full-size image</a>.</figcaption></figure>
+        <dl class="doc-fields">
+          <div><dt>Gradient</dt><dd>Set <strong>Color</strong>, <strong>End Color</strong> and <strong>Angle</strong>. The gradient multiplies the shape's fill color; start with a white fill if you want the gradient colors unchanged.</dd></div>
+          <div><dt>Outline</dt><dd>Choose a <strong>Color</strong> and increase <strong>Size</strong> to add an outside border. Add Group padding if the border is clipped.</dd></div>
+          <div><dt>Bevel</dt><dd>Use <strong>Width</strong>, <strong>Light Angle</strong> and <strong>Strength</strong> to create a raised edge. Adjust <strong>Highlight Color</strong> and <strong>Shadow Color</strong> to control the lighting.</dd></div>
+          <div><dt>Inner Shadow</dt><dd>Set <strong>Color</strong>, <strong>Size</strong> and <strong>Offset</strong> for a shadow inside the outline.</dd></div>
+          <div><dt>Blur</dt><dd>Increase <strong>Size</strong> to soften the artwork. Leave room around it with Group padding.</dd></div>
+          <div><dt>Drop Shadow</dt><dd>Set <strong>Color</strong>, <strong>Size</strong> and <strong>Offset</strong> for a shadow behind the artwork. Make sure the Group bounds or padding include it.</dd></div>
+        </dl>
+        <p>Different effect types can be combined. Only one active entry of each type is supported. The processing order is fixed:</p>
+        <p><strong>Gradient → Outline → Bevel → Inner Shadow → Blur → Drop Shadow</strong></p>
+        <figure class="doc-example"><img src="../assets/glossy-button.png" width="296" height="152" loading="lazy" alt="Blue rounded button with a light upper edge and a dark lower edge."><figcaption>For a raised button, start with a rounded rectangle, then adjust a gradient and bevel. Preview the result at its intended UI size.</figcaption></figure>
+      </section>
+
+      <section class="doc-section" id="cutout" aria-labelledby="cutout-heading">
+        <h2 id="cutout-heading">SpriteLessCutout</h2>
+        <span class="doc-kind">Editor-only · subtracts a shape from the output</span>
+        <ol>
+          <li>Create the shape of the hole using <strong>SpriteLessImage</strong> or <strong>SpriteLessPolygon</strong>.</li>
+          <li>Add <strong>SpriteLessCutout</strong> to that same object, not to the Group itself.</li>
+          <li>Move and resize the shape to place the hole. Check the result in the Group preview or Baker preview.</li>
+        </ol>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/pro-cutout.png" aria-label="Open full-size SpriteLessCutout Inspector screenshot"><img src="../assets/screenshots/pro-cutout.png" width="445" height="469" loading="lazy" alt="SpriteLessImage and SpriteLessCutout attached to the same object; Cutout is marked as an editor-only component."></a><figcaption>Add Cutout alongside the shape that defines the hole. <a href="../assets/screenshots/pro-cutout.png">Open full-size image</a>.</figcaption></figure>
+        <p>The cutout affects its nearest active Group. To keep other artwork intact, put only the shapes you want to cut in a nested Group:</p>
+        <pre class="doc-diagram" aria-label="Example hierarchy for a cutout that affects only a frame"><code>Outer Group
+├─ Background shape
+└─ Frame Group
+   ├─ Frame shape
+   └─ Hole shape + SpriteLessCutout</code></pre>
+        <p>Here, the hole removes part of the frame but leaves the background untouched. Without a Group, <strong>Export PNG</strong> applies the cutout within the selected output hierarchy.</p>
+        <aside class="doc-note"><p>Cutouts are applied after effects in the same Group. To add an effect around the cut edges, put the cut artwork in a child Group and apply the effect to its parent Group.</p></aside>
+        <figure class="doc-example"><img src="../assets/cutout-ticket.png" width="360" height="200" loading="lazy" alt="Ticket-shaped PNG with rounded transparent notches."><figcaption>Use a simple shape as a cutout to make notches, holes and transparent centers.</figcaption></figure>
+      </section>
+
+      <section class="doc-section" id="baker" aria-labelledby="baker-heading">
+        <h2 id="baker-heading">Baker window</h2>
+        <p>Open <strong>Tools → SpriteLess UI Pro → Baker</strong>, or click <strong>Open Baker</strong> on a Group. The Windows shortcut is <strong>Ctrl + Shift + Alt + I</strong>.</p>
+        <p>Choose <strong>Source</strong> and <strong>PNG Folder</strong>. With a Group selected, edit content size, padding and supersampling in the Group Inspector; the Baker shows those same settings.</p>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/pro-baker.png" aria-label="Open full-size SpriteLess Baker window screenshot"><img src="../assets/screenshots/pro-baker.png" width="398" height="860" loading="lazy" alt="SpriteLess Baker with a potion icon Group selected, PNG settings, bake and export buttons, and a transparent-background preview."></a><figcaption>Group baking and one-time PNG export share the same Baker window. <a href="../assets/screenshots/pro-baker.png">Open full-size image</a>.</figcaption></figure>
+        <dl class="doc-fields">
+          <div><dt>Bake / Update Sprite</dt><dd>Save the Group's output and assign it to Baked Sprite. Use this to keep editing and updating the same resource.</dd></div>
+          <div><dt>Create Group</dt><dd>Wrap a selected source that has no Group. Choose this if you want a reusable, linked baking workflow.</dd></div>
+          <div><dt>Refresh Preview</dt><dd>Render a temporary preview in the window. It does not save a PNG or update the baked sprite.</dd></div>
+          <div><dt>Export PNG…</dt><dd>Save a one-time PNG of the selected hierarchy. Works without a Group and does not create a source link, Prefab or Image object.</dd></div>
+        </dl>
+        <aside class="doc-note warning"><p><strong>Exporting over an existing PNG changes every place that uses that sprite.</strong> It also removes that file's previous bake-source link. Use a new filename when you want a separate copy.</p></aside>
+        <h3>Output size and quality</h3>
+        <p>The final <strong>PNG Size</strong> includes padding. Each side can be up to 4096 pixels, subject to your device's capture-size limit. Supersampling changes capture resolution, not the final PNG dimensions. If a bake is too large, reduce supersampling first.</p>
+      </section>
+
+      <section class="doc-section" id="prefabs" aria-labelledby="prefabs-heading">
+        <h2 id="prefabs-heading">Save an editable source Prefab</h2>
+        <p>Baking and saving a Prefab are separate actions. A scene Group can be baked without creating a Prefab.</p>
+        <ol>
+          <li>On a scene Group, click <strong>Save Source Prefab…</strong> and choose the destination. The Group is saved and connected to the Prefab.</li>
+          <li>Use <strong>Open Source Prefab</strong> to edit a connected source. Save your changes, then bake again.</li>
+          <li>If you edit the connected instance in a scene, use Unity's <strong>Apply</strong> or <strong>Revert</strong> for authoring changes before baking. The baker does not apply overrides automatically.</li>
+        </ol>
+        <p>Duplicating a Group or source Prefab creates a separate output on its first bake, so you can develop a variation without replacing the original output.</p>
+      </section>
+
+      <section class="doc-section" id="runtime" aria-labelledby="runtime-heading">
+        <h2 id="runtime-heading">Use the result in your game</h2>
+        <p>Either keep the baked Group in your UI, or assign the generated sprite to a regular <strong>UI Image → Source Image</strong>.</p>
+        <ul>
+          <li><strong>SpriteLessImage and SpriteLessPolygon</strong> can draw shapes directly at runtime.</li>
+          <li><strong>SpriteLessGroup</strong> displays the saved sprite at runtime and disables its authoring children. Bake your final changes before entering Play mode or building.</li>
+          <li><strong>SpriteLessEffects and SpriteLessCutout</strong> are editor authoring tools. Their appearance must be baked; they do not run as live gameplay effects.</li>
+        </ul>
+        <h3>Supported bake inputs</h3>
+        <p>Use <strong>SpriteLessImage</strong> and <strong>SpriteLessPolygon</strong> as source graphics. Ordinary UI Image, text and TextMeshPro inputs are not currently supported. Custom materials need to be compatible with the baker; an arbitrary shader is not guaranteed to reproduce correctly in a transparent PNG.</p>
+      </section>
+
+      <section class="doc-section" id="troubleshooting" aria-labelledby="troubleshooting-heading">
+        <h2 id="troubleshooting-heading">Troubleshooting</h2>
+        <details class="doc-faq"><summary>The sprite still shows the old artwork.</summary><p><strong>Refresh Preview</strong> only creates a temporary preview. Click <strong>Bake / Update Sprite</strong> to update the saved PNG. If the Group has a source Prefab, check that its authoring changes are saved or applied.</p></details>
+        <details class="doc-faq"><summary>A shadow or outline is cut off.</summary><p>Increase the Group's <strong>Padding</strong> on the affected side, or leave more space inside the content bounds. Bake again to update the output.</p></details>
+        <details class="doc-faq"><summary>A cutout removes more than I wanted.</summary><p>Its scope is the nearest active Group. Put the cutout and the shapes it should affect in their own nested Group. Keep the other shapes outside that Group.</p></details>
+        <details class="doc-faq"><summary>The cutout component shows a placement warning.</summary><p>Add it to the same object as a <strong>SpriteLessImage</strong> or <strong>SpriteLessPolygon</strong>. Do not attach it directly to the Group or to an empty object.</p></details>
+        <details class="doc-faq"><summary>The bake is too large or takes too long.</summary><p>Try <strong>Supersampling → 1x</strong>, then reduce content size or padding if needed. Higher supersampling and more effect layers require additional work and memory. Follow the bake dialog's specific size or device-limit message.</p></details>
+        <details class="doc-faq"><summary>My child objects disappear in Play mode.</summary><p>This is expected for a baked Group: its children are authoring resources. Move interactive UI and gameplay objects outside the Group's authoring hierarchy.</p></details>
+      </section>
+
+      <section class="doc-section" id="support" aria-labelledby="support-heading">
+        <h2 id="support-heading">Need help?</h2>
+        <p>Email <a href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI%20Pro">darknesstyranno@naver.com</a>. For a bug report, include your Unity version, package version, the steps to reproduce it, and any error message or screenshot.</p>
+        <a class="doc-top" href="#main">Back to top ↑</a>
+      </section>
+    </main>
+  </div>
   <footer class="shell site-footer"><p>© 2026 DarknessTyranno</p><a href="https://github.com/DarknessTyranno">GitHub <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>

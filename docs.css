@@ -1,0 +1,66 @@
+.docs-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 4rem; align-items: start; padding-block: 3rem 5rem; }
+.docs-sidebar { position: sticky; top: 1.5rem; max-height: calc(100vh - 3rem); overflow-y: auto; }
+.docs-sidebar summary { cursor: pointer; color: var(--ink); font-size: .9rem; font-weight: 650; padding-block: .6rem; }
+.docs-sidebar nav { padding-block: .75rem; }
+.docs-sidebar a { display: block; padding: .45rem .8rem; border-left: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+.docs-sidebar a:hover, .docs-sidebar a:focus-visible { color: var(--mint); background: var(--panel); }
+.docs-sidebar .nav-label { color: var(--subtle); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin: 1.15rem 0 .5rem .8rem; }
+.docs-sidebar .nav-label:first-child { margin-top: 0; }
+.docs-sidebar .nav-group + .nav-group { margin-top: .8rem; }
+.docs-content { min-width: 0; max-width: 820px; }
+.docs-title { padding: .4rem 0 2.5rem; }
+.docs-title .eyebrow { margin-bottom: .7rem; }
+.docs-title h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.04em; }
+.docs-title .lead { font-size: 1.05rem; max-width: 43rem; margin-top: 1rem; }
+.docs-title .asset-meta { margin-top: 1rem; gap: .5rem 1rem; }
+.docs-title .tag { margin-top: 1.15rem; }
+.doc-section { border-top: 1px solid var(--line); padding-block: 2.5rem; scroll-margin-top: 1.5rem; }
+.doc-section:target > h2 { color: var(--mint); }
+.doc-section h2 { font-size: 1.65rem; line-height: 1.3; letter-spacing: -.025em; }
+.doc-section h3 { margin-top: 1.7rem; font-size: 1.15rem; line-height: 1.4; }
+.doc-section p, .doc-section ul, .doc-section ol, .doc-section dl { margin-top: 1rem; }
+.doc-section li, .doc-section dd { color: var(--muted); }
+.doc-section ul, .doc-section ol { padding-left: 1.4rem; }
+.doc-section li + li { margin-top: .65rem; }
+.doc-section strong { color: var(--ink); font-weight: 600; }
+.doc-section a:not(.button) { color: var(--mint); text-decoration: underline; text-underline-offset: 4px; }
+.doc-kind { display: block; color: var(--subtle); font-size: .8rem; margin-top: .4rem; }
+.doc-note { border-left: 2px solid var(--mint); padding: .85rem 1.1rem; background: var(--panel); margin-top: 1.4rem; }
+.doc-note p:first-child { margin-top: 0; }
+.doc-note.warning { border-color: var(--gold); }
+.doc-fields { margin-bottom: 0; }
+.doc-fields > div { display: grid; grid-template-columns: minmax(135px, 1fr) minmax(0, 2.5fr); gap: 1.5rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.doc-fields dt { font-weight: 600; font-size: .95rem; }
+.doc-fields dd { margin: 0; font-size: .95rem; }
+.doc-example { display: flex; align-items: center; gap: 1.5rem; padding: 1.25rem; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; margin-top: 1.5rem; }
+.doc-example img { width: 150px; max-height: 140px; object-fit: contain; flex: 0 0 auto; }
+.doc-example figcaption { font-size: .9rem; color: var(--muted); }
+.doc-screenshot { margin-top: 1.5rem; }
+.doc-screenshot img { max-height: 720px; width: auto; border: 1px solid var(--line); border-radius: 4px; }
+.doc-screenshot figcaption { margin-top: .6rem; font-size: .85rem; color: var(--subtle); }
+.doc-diagram { margin: 1.2rem 0 0; padding: 1.1rem; background: #101420; border: 1px solid var(--line); font-size: .85rem; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
+.doc-faq { padding-block: 1rem; border-bottom: 1px solid var(--line); }
+.doc-faq summary { cursor: pointer; font-weight: 600; line-height: 1.5; }
+.doc-faq p { margin-top: .75rem; }
+.doc-section .code-block { font-size: .85rem; }
+.doc-section .core-preview { margin-top: 1.5rem; }
+.doc-top { display: inline-block; margin-top: 1.5rem; font-size: .85rem; }
+@media (max-width: 1050px) {
+  .docs-layout { grid-template-columns: 195px minmax(0, 1fr); gap: 2rem; }
+}
+@media (max-width: 850px) {
+  .docs-layout { grid-template-columns: 1fr; gap: 2rem; padding-top: 1.5rem; }
+  .docs-sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: .75rem; }
+  .docs-sidebar nav { columns: 2; column-gap: 1rem; }
+  .docs-sidebar .nav-group { break-inside: avoid; padding-bottom: .75rem; }
+  .docs-sidebar .nav-label { margin-top: 0; }
+  .docs-title { padding-top: 0; }
+}
+@media (max-width: 520px) {
+  .doc-fields > div { grid-template-columns: 1fr; gap: .4rem; }
+  .doc-example { flex-direction: column; align-items: flex-start; }
+  .doc-section { padding-block: 2rem; }
+}
+@media (max-width: 370px) {
+  .docs-sidebar nav { columns: 1; }
+}

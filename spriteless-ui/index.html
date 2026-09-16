@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Free, MIT-licensed procedural graphics for Unity uGUI. Create rounded rectangles, circles, polygons, rings and more without sprite files.">
+  <meta name="description" content="SpriteLess UI user guide. Install the free Unity package and use SpriteLessImage shapes, borders, rounded corners, materials and shape-aware raycasts.">
   <meta name="theme-color" content="#171b2c">
-  <title>SpriteLess UI — Free procedural uGUI shapes | DarknessTyranno</title>
+  <title>SpriteLess UI — User Guide | DarknessTyranno</title>
   <link rel="canonical" href="https://darknesstyranno.github.io/spriteless-ui/">
   <link rel="icon" type="image/png" href="../assets/dinosaur.png">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../docs.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -17,44 +18,109 @@
     <nav class="main-nav" aria-label="Main navigation"><a href="../">Home</a><a href="../spriteless-ui-pro/">SpriteLess UI Pro</a><a href="./" aria-current="page">SpriteLess UI</a></nav>
     <a class="header-contact" href="mailto:darknesstyranno@naver.com">Contact <span aria-hidden="true">↗</span></a>
   </div></header>
-  <main id="main">
-    <section class="shell asset-hero" aria-labelledby="core-heading">
-      <div>
-        <span class="tag tag-mint">Free &amp; open source · MIT</span>
-        <h1 id="core-heading">SpriteLess UI</h1>
-        <p class="lead">Everyday UI shapes, without sprite files. Create and customize geometry-based graphics directly in Unity's uGUI.</p>
+  <div class="shell docs-layout">
+    <aside class="docs-sidebar">
+      <details open>
+        <summary>On this page</summary>
+        <nav aria-label="User guide contents">
+          <div class="nav-group"><p class="nav-label">Start here</p><a href="#installation">Installation</a><a href="#image">SpriteLessImage</a></div>
+          <div class="nav-group"><p class="nav-label">Settings</p><a href="#shapes">Choose a shape</a><a href="#appearance">Border &amp; appearance</a><a href="#interaction">Pointer input &amp; UI</a><a href="#materials">Materials</a></div>
+          <div class="nav-group"><p class="nav-label">Reference</p><a href="#troubleshooting">Troubleshooting</a><a href="#support">Support &amp; license</a></div>
+        </nav>
+      </details>
+    </aside>
+    <main class="docs-content" id="main">
+      <header class="docs-title">
+        <p class="eyebrow">User guide</p>
+        <h1>SpriteLess UI</h1>
+        <p class="lead">Create everyday uGUI shapes without sprite files. Choose a shape in one component, then adjust it with the Inspector and RectTransform.</p>
         <div class="asset-meta"><span>Unity 2021.3 LTS+</span><span>uGUI</span><span>Runtime-ready</span></div>
-        <div class="button-row"><a class="button" href="https://github.com/DarknessTyranno/SpriteLess-UI">View on GitHub <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="#installation">Installation</a></div>
-      </div>
-      <figure><div class="core-preview"><img src="../assets/core-shapes.png" width="1562" height="875" alt="SpriteLess UI examples: rectangles, circles, quadrilaterals, triangles, chevrons and arcs with different borders and edge effects."></div><figcaption class="figure-caption">One component. A range of everyday UI shapes.</figcaption></figure>
-    </section>
+        <span class="tag tag-mint">Free &amp; open source · MIT</span>
+      </header>
 
-    <section class="shell section" aria-labelledby="features-heading">
-      <div class="section-heading"><p class="eyebrow">Keep the simple things simple</p><h2 id="features-heading">Choose a shape. Make it yours.</h2></div>
-      <div class="feature-grid">
-        <article class="feature"><p class="feature-label">01 / Shape</p><h3>More than rectangles</h3><p>Rounded rectangles, pills, circles, ellipses, rings, arcs, triangles, chevrons and regular polygons. Per-corner offsets also create trapezoids and parallelograms.</p></article>
-        <article class="feature"><p class="feature-label">02 / Style</p><h3>Adjust in the Inspector</h3><p>Control fill colors, corner radii, inside borders and anti-aliasing. Add directional edge color for a little depth, or assign a compatible custom UI material.</p></article>
-        <article class="feature"><p class="feature-label">03 / Integrate</p><h3>Fits into uGUI</h3><p>Use RectTransforms, layout groups, buttons and sliders. Supports Mask and RectMask2D, plus shape-aware raycasts for non-rectangular graphics.</p></article>
-      </div>
-      <aside class="note"><p><strong>No custom shader or generated texture required.</strong> Default graphics use the shared UI material. SpriteLess UI is a runtime shape component, not an image-baking tool.</p></aside>
-    </section>
-
-    <section class="shell section" id="installation" aria-labelledby="installation-heading">
-      <div class="section-heading"><p class="eyebrow">Get started</p><h2 id="installation-heading">Install from a Git URL.</h2></div>
-      <div class="install-copy">
+      <section class="doc-section" id="installation" aria-labelledby="installation-heading">
+        <h2 id="installation-heading">Installation</h2>
         <p>In Unity's Package Manager, choose <strong>Add package from git URL</strong> and paste:</p>
         <pre class="code-block"><code>https://github.com/DarknessTyranno/SpriteLess-UI.git?path=/Packages/io.github.darknesstyranno.spriteless-ui</code></pre>
-        <p style="margin-top: 1.5rem">Create a shape from <strong>GameObject → UI (Canvas) → SpriteLess</strong>, or add <code>SpriteLessImage</code> to a UI GameObject. Choose the shape and adjust its settings in the Inspector.</p>
-      </div>
-      <div class="requirements" style="margin-top: 2.5rem">
-        <div><h3>Requirements</h3><ul><li>Unity 2021.3 LTS or newer.</li><li>Unity UI (uGUI) 1.0.0 or the version bundled with your Editor.</li><li>Git 2.14 or newer for Git URL installation.</li></ul></div>
-        <div><h3>Open source</h3><ul><li>Released under the MIT license.</li><li>No TextMeshPro or Scriptable Render Pipeline dependency.</li><li>Read the <a href="https://github.com/DarknessTyranno/SpriteLess-UI/blob/main/Packages/io.github.darknesstyranno.spriteless-ui/README.md">package documentation</a> for the full feature list and usage notes.</li></ul></div>
-      </div>
-    </section>
+        <p>You need Unity 2021.3 LTS or newer, Unity UI 1.0.0 or the version bundled with your Editor, and Git 2.14 or newer for Git URL installation.</p>
+        <p>If SpriteLess UI is already installed as the Core package for Pro, you do not need a second copy.</p>
+      </section>
 
-    <section class="shell section" aria-labelledby="pro-link-heading"><div class="section-heading"><p class="eyebrow">Looking for PNG output?</p><h2 id="pro-link-heading">Meet SpriteLess UI Pro.</h2><p>Compose shapes into UI artwork, add effects and cutouts, and bake the result into a PNG sprite inside Unity.</p></div><a class="text-link" href="../spriteless-ui-pro/">Explore Pro <span aria-hidden="true">↗</span></a></section>
-    <section class="contact-section" aria-labelledby="contact-heading"><div class="shell contact-inner"><div><p class="eyebrow">Get in touch</p><h2 id="contact-heading">Questions or feedback?</h2><p>For bug reports, you can also <a class="inline-link" href="https://github.com/DarknessTyranno/SpriteLess-UI/issues">open a GitHub issue</a>.</p></div><a class="contact-email" href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI">darknesstyranno@naver.com <span aria-hidden="true">↗</span></a></div></section>
-  </main>
+      <section class="doc-section" id="image" aria-labelledby="image-heading">
+        <h2 id="image-heading">SpriteLessImage</h2>
+        <ol>
+          <li>Create a shape from <strong>GameObject → UI (Canvas) → SpriteLess</strong>, or add <strong>SpriteLessImage</strong> to a UI GameObject.</li>
+          <li>Choose <strong>Shape</strong> and set <strong>Fill Color</strong>.</li>
+          <li>Adjust its RectTransform to position, resize or rotate the shape.</li>
+          <li>Use the settings shown for that shape to change corners, thickness or other details.</li>
+        </ol>
+        <figure class="doc-screenshot"><a href="../assets/screenshots/core-image.png" aria-label="Open full-size SpriteLessImage Inspector screenshot"><img src="../assets/screenshots/core-image.png" width="446" height="412" loading="lazy" alt="SpriteLessImage Inspector with the Shape menu open, listing the available shapes."></a><figcaption>Choose a shape, then adjust the settings for that shape. <a href="../assets/screenshots/core-image.png">Open full-size image</a>.</figcaption></figure>
+        <p>You do not need to swap components to change shapes. The Inspector displays the controls that apply to the selected shape.</p>
+        <figure class="core-preview"><img src="../assets/core-shapes.png" width="1562" height="875" loading="lazy" alt="Examples of rectangles, circles, quadrilaterals, triangles, chevrons and arcs with different appearances."></figure>
+      </section>
+
+      <section class="doc-section" id="shapes" aria-labelledby="shapes-heading">
+        <h2 id="shapes-heading">Choose a shape</h2>
+        <dl class="doc-fields">
+          <div><dt>Rounded Rectangle</dt><dd>Use <strong>Radius</strong> for rounded corners. Set it to 0 for a rectangle, or increase it for a pill. Enable <strong>Individual</strong> to give each corner a different radius.</dd></div>
+          <div><dt>Circle</dt><dd>Use a square RectTransform for a circle. Change its width and height independently for an ellipse.</dd></div>
+          <div><dt>Quadrilateral</dt><dd>Adjust each corner's X/Y values in <strong>Corner Offsets</strong> to make a trapezoid or parallelogram. Keep the outline convex and avoid crossing the edges.</dd></div>
+          <div><dt>Triangle</dt><dd>Choose <strong>Type</strong>: Isosceles fills the rectangle, Equilateral keeps equal sides, and Right uses <strong>Right Angle Corner</strong>. Use <strong>Direction</strong> where available.</dd></div>
+          <div><dt>Chevron</dt><dd>Choose Stretch or Equilateral proportions. Adjust <strong>Direction</strong>, <strong>Thickness</strong>, <strong>Spread</strong>, <strong>Cap</strong> and <strong>Join</strong>. Equilateral keeps the proportions of two sides of an equilateral triangle.</dd></div>
+          <div><dt>Arc / Ring</dt><dd>Adjust <strong>Thickness</strong>, <strong>Start Angle</strong> and <strong>Sweep Angle</strong>. Start Angle 0 is at the top. Positive sweep moves clockwise; a sweep of 360 makes a ring. Use <strong>Cap</strong> for the ends of an open arc.</dd></div>
+          <div><dt>Regular Polygon</dt><dd>Choose 3–64 <strong>Sides</strong>, adjust clockwise <strong>Rotation</strong>, and use <strong>Radius</strong> to round the corners. The polygon keeps its proportions even in a non-square RectTransform.</dd></div>
+        </dl>
+        <h3>Keep a polygon centered while rotating</h3>
+        <p>Enable <strong>Center on Rect</strong> to keep the regular polygon's center at the RectTransform center. Its size stays constant as you rotate it, with some extra space around the edges. Leave it off to fit the polygon's bounds to the available rectangle.</p>
+      </section>
+
+      <section class="doc-section" id="appearance" aria-labelledby="appearance-heading">
+        <h2 id="appearance-heading">Border and appearance</h2>
+        <dl class="doc-fields">
+          <div><dt>Fill Color</dt><dd>Set the shape's color and transparency.</dd></div>
+          <div><dt>Border</dt><dd>Enable it, then set <strong>Width</strong> and <strong>Color</strong>. The border is drawn inside the shape.</dd></div>
+          <div><dt>Edge Effect</dt><dd>Enable a directional edge tint for lightweight depth. Set <strong>Width</strong>, <strong>Color</strong> and <strong>Direction</strong>. A direction of (0, -1) shades the bottom edge.</dd></div>
+          <div><dt>Anti Aliasing</dt><dd>Enable it to soften the contour. <strong>Width</strong> controls the inset feather in UI units, not a fixed number of screen pixels. Start small and inspect it at the intended display size.</dd></div>
+        </dl>
+        <p>Arc and Chevron use stroke controls instead of the Border and Edge Effect settings.</p>
+        <aside class="doc-note"><p>For layered gradients, bevels, shadows and PNG output, see <a href="../spriteless-ui-pro/#effects">SpriteLess UI Pro</a>. The Core component does not require baking to work at runtime.</p></aside>
+      </section>
+
+      <section class="doc-section" id="interaction" aria-labelledby="interaction-heading">
+        <h2 id="interaction-heading">Pointer input and UI controls</h2>
+        <p>Leave <strong>Raycast Target</strong> on for a graphic that needs to receive pointer input. Turn it off for decoration that should not block controls behind it.</p>
+        <dl class="doc-fields">
+          <div><dt>Raycast Area: Rect Transform</dt><dd>Use the full UI rectangle as the hit area, matching standard rectangular UI behavior.</dd></div>
+          <div><dt>Raycast Area: Shape</dt><dd>Make the hit area follow the generated shape. Useful for rings, arcs and other non-rectangular graphics.</dd></div>
+          <div><dt>Maskable</dt><dd>Keep this enabled when the graphic should be clipped by a parent Mask or RectMask2D.</dd></div>
+        </dl>
+        <h3>Buttons, sliders and layouts</h3>
+        <p>Assign SpriteLessImage to a Button's <strong>Target Graphic</strong> to use it as the button graphic. For a Slider, use it on the fill object and assign that object's RectTransform to <strong>Fill Rect</strong>. Size the fill with the Slider's RectTransform-based workflow.</p>
+        <p>Position and resize shapes with standard RectTransforms and layout groups. The component draws inside its assigned rectangle.</p>
+      </section>
+
+      <section class="doc-section" id="materials" aria-labelledby="materials-heading">
+        <h2 id="materials-heading">Materials</h2>
+        <p>Leave <strong>Material</strong> empty to use the default UI material, or assign a uGUI-compatible material for a custom appearance. No custom shader or generated texture is required for the built-in shapes.</p>
+        <p>Test custom materials with any masks you use. A material that works on a 3D object is not necessarily suitable for uGUI. If you plan to bake it with Pro, check the Baker preview and output too.</p>
+      </section>
+
+      <section class="doc-section" id="troubleshooting" aria-labelledby="troubleshooting-heading">
+        <h2 id="troubleshooting-heading">Troubleshooting</h2>
+        <details class="doc-faq"><summary>My circle looks like an ellipse.</summary><p>Set the RectTransform width and height to the same value for a circle.</p></details>
+        <details class="doc-faq"><summary>The empty area around an arc still blocks clicks.</summary><p>Use <strong>Raycast Area → Shape</strong>. If the whole graphic is decorative, turn off <strong>Raycast Target</strong> instead.</p></details>
+        <details class="doc-faq"><summary>The polygon appears to shift when rotated.</summary><p>Enable <strong>Center on Rect</strong>. This keeps the regular polygon's center and size fixed instead of refitting its bounds at each angle.</p></details>
+        <details class="doc-faq"><summary>A custom material does not render correctly.</summary><p>Clear the <strong>Material</strong> field to check the shape with the default UI material, then verify your custom material's uGUI and masking compatibility.</p></details>
+      </section>
+
+      <section class="doc-section" id="support" aria-labelledby="support-heading">
+        <h2 id="support-heading">Support and license</h2>
+        <p>SpriteLess UI is released under the <a href="https://github.com/DarknessTyranno/SpriteLess-UI">MIT license on GitHub</a>. For bug reports, <a href="https://github.com/DarknessTyranno/SpriteLess-UI/issues">open an issue</a> with your Unity version, package version and steps to reproduce the problem.</p>
+        <p>You can also contact <a href="mailto:darknesstyranno@naver.com?subject=SpriteLess%20UI">darknesstyranno@naver.com</a>.</p>
+        <a class="doc-top" href="#main">Back to top ↑</a>
+      </section>
+    </main>
+  </div>
   <footer class="shell site-footer"><p>© 2026 DarknessTyranno</p><a href="https://github.com/DarknessTyranno">GitHub <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>
