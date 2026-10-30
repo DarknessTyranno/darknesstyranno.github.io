@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SpriteLess UI user guide. Install the free Unity package and use SpriteLessImage shapes, borders, rounded corners, materials and shape-aware raycasts.">
+  <meta name="description" content="SpriteLess UI user guide. Use SpriteLessImage shapes and editable SpriteLessLine polylines, with thickness, borders, rounded corners and uGUI materials.">
   <meta name="theme-color" content="#171b2c">
   <title>SpriteLess UI — User Guide | DarknessTyranno</title>
   <link rel="canonical" href="https://darknesstyranno.github.io/spriteless-ui/">
@@ -23,7 +23,7 @@
       <details open>
         <summary>On this page</summary>
         <nav aria-label="User guide contents">
-          <div class="nav-group"><p class="nav-label">Start here</p><a href="#installation">Installation</a><a href="#image">SpriteLessImage</a></div>
+          <div class="nav-group"><p class="nav-label">Start here</p><a href="#installation">Installation</a><a href="#image">SpriteLessImage</a><a href="#line">SpriteLessLine</a></div>
           <div class="nav-group"><p class="nav-label">Settings</p><a href="#shapes">Choose a shape</a><a href="#appearance">Border &amp; appearance</a><a href="#interaction">Pointer input &amp; UI</a><a href="#materials">Materials</a></div>
           <div class="nav-group"><p class="nav-label">Reference</p><a href="#troubleshooting">Troubleshooting</a><a href="#support">Support &amp; license</a></div>
         </nav>
@@ -43,7 +43,7 @@
         <p>In Unity's Package Manager, choose <strong>Add package from git URL</strong> and paste:</p>
         <pre class="code-block"><code>https://github.com/DarknessTyranno/SpriteLess-UI.git?path=/Packages/io.github.darknesstyranno.spriteless-ui</code></pre>
         <p>You need Unity 2021.3 LTS or newer, Unity UI 1.0.0 or the version bundled with your Editor, and Git 2.14 or newer for Git URL installation.</p>
-        <p>If SpriteLess UI is already installed as the Core package for Pro, you do not need a second copy.</p>
+        <p>The SpriteLess UI Pro Asset Store package includes Core. If you use Pro, do not install this Git package alongside it.</p>
       </section>
 
       <section class="doc-section" id="image" aria-labelledby="image-heading">
@@ -57,6 +57,26 @@
         <figure class="doc-screenshot"><a href="../assets/screenshots/core-image.png" aria-label="Open full-size SpriteLessImage Inspector screenshot"><img src="../assets/screenshots/core-image.png" width="446" height="412" loading="lazy" alt="SpriteLessImage Inspector with the Shape menu open, listing the available shapes."></a><figcaption>Choose a shape, then adjust the settings for that shape. <a href="../assets/screenshots/core-image.png">Open full-size image</a>.</figcaption></figure>
         <p>You do not need to swap components to change shapes. The Inspector displays the controls that apply to the selected shape.</p>
         <figure class="core-preview"><img src="../assets/core-shapes.png" width="1562" height="875" loading="lazy" alt="Examples of rectangles, circles, quadrilaterals, triangles, chevrons and arcs with different appearances."></figure>
+      </section>
+
+      <section class="doc-section" id="line" aria-labelledby="line-heading">
+        <h2 id="line-heading">SpriteLessLine</h2>
+        <p>Create straight lines and open polylines from <strong>GameObject → UI (Canvas) → SpriteLess → Line</strong>. Like SpriteLessImage, the line draws directly at runtime without baking.</p>
+        <ol>
+          <li>Set <strong>Color</strong> and <strong>Thickness</strong>, then choose flat or round <strong>Cap</strong> ends and miter or round <strong>Join</strong> corners.</li>
+          <li>Drag points in the Scene view. <strong>Shift-drag either endpoint</strong> to add a point and extend the line. Escape cancels the extension; Undo reverses it.</li>
+          <li>Click a segment midpoint to insert a point. Select a point and click <strong>Remove Selected Point</strong> to remove it, keeping at least two points.</li>
+          <li>Edit <strong>Normalized Points</strong> in the Inspector when you need precise positions.</li>
+        </ol>
+        <dl class="doc-fields">
+          <div><dt>Normalized Points</dt><dd>Coordinates are relative to the RectTransform: (0, 0) is bottom-left and (1, 1) is top-right. Resizing the rectangle moves the points with it.</dd></div>
+          <div><dt>Thickness</dt><dd>Width is measured in UI units and does not change when you resize the RectTransform. The stroke is centered on its path; leave room for its width and end caps.</dd></div>
+          <div><dt>Anti Aliasing</dt><dd>Soften the stroke edges and inspect the result at the intended display size.</dd></div>
+          <div><dt>Material &amp; masks</dt><dd>Use a uGUI-compatible material. Parent Mask and RectMask2D components can clip the line.</dd></div>
+          <div><dt>Raycast Target</dt><dd>Off on newly created lines. When enabled, the hit area is the RectTransform rectangle, not just the visible stroke.</dd></div>
+        </dl>
+        <p>Lines use straight segments. Bézier curves, closed paths, dashed lines and variable width are not included. Overlapping segments can darken a translucent line.</p>
+        <p>To bake a line into a PNG with Pro, place it under a <a href="../spriteless-ui-pro/#group">SpriteLessGroup</a>.</p>
       </section>
 
       <section class="doc-section" id="shapes" aria-labelledby="shapes-heading">
